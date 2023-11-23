@@ -1,0 +1,231 @@
+:root{
+  --primary-color: #618bec;
+  --background: #f8f8f8;
+  --border-radius: 4px;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+  padding: 0;
+}
+
+body {
+  
+  background: var(--background);
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+ul, li {
+  list-style: none;
+}
+/* Headr  */
+header {
+  background-color: #fff;
+  padding: .5rem 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+/* Main Content  */
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px .5rem;
+}
+main>div {
+  width: 100%;
+}
+a,
+.green {
+  text-decoration: none;
+  color: var(--color-text);
+  transition: 0.4s;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr) ) ;
+  grid-gap: 1rem;
+  margin-top: 2rem;
+}
+hr{
+  border:1px solid rgb(230, 230, 230);
+}
+/* Filters Fields  */
+.filters__container{
+  display: flex;
+  align-items: center;
+  margin-block: 1rem;
+}
+.search_container {
+  border: 2px solid lightgray;
+  border-radius: var(--border-radius);
+  margin-right: 1rem;
+  width: 210px;
+  height: 40px;
+  display: flex;
+
+  position: relative;
+}
+.search_container svg {
+  color: lightgray;
+  z-index: 100;
+  position: absolute;
+  top: 5px;
+  right: 4px;
+}
+.search_container input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border: none;
+  padding: .6rem;
+  border-radius: var(--border-radius);
+  outline-color: var(--primary-color);
+}
+
+.filters__container select {
+  padding: .6rem;
+  border: 1px solid lightgray;
+  border-radius: var(--border-radius);
+}
+.filters__container select:focus{
+  outline: 2px solid var(--primary-color);
+}
+.filters__container select option {
+  padding: .6rem;
+}
+
+/* Products  */
+.card {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius);
+  background-color: #fff;
+}
+.image_container {
+  height: 200px;
+  padding: 1rem;
+}
+.image_container img{
+  width: 100%;
+  height: 100%;
+}
+.card .content {
+  padding: .5rem 1rem;
+}
+.card .content p {
+  margin-block: 1rem;
+  word-break: break-all;
+}
+.card .price_container {
+  text-align: end;
+}
+
+
+.custom-loader {    
+  --r1: 154%;
+  --r2: 68.5%;
+  width:60px;
+  height:60px;
+  border-radius: 50%; 
+  background:
+    radial-gradient(var(--r1) var(--r2) at top   ,#0000 79.5%,#618bec 80%),
+    radial-gradient(var(--r1) var(--r2) at bottom,#618bec 79.5%,#0000 80%),
+    radial-gradient(var(--r1) var(--r2) at top   ,#0000 79.5%,#618bec 80%),
+    #E4E4ED;
+  background-size: 50.5% 220%;
+  background-position: -100% 0%,0% 0%,100% 0%;
+  background-repeat:no-repeat;
+  animation:p9 2s infinite linear;
+}
+@keyframes p9 {
+    33%  {background-position:    0% 33% ,100% 33% ,200% 33% }
+    66%  {background-position: -100%  66%,0%   66% ,100% 66% }
+    100% {background-position:    0% 100%,100% 100%,200% 100%}
+}
+
+
+/* Tanstions Animations  */
+
+.list-move, /* apply transition to moving elements */
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+/* ensure leaving items are taken out of layout flow so that moving
+   animations can be calculated correctly. */
+.list-leave-active {
+  position: absolute;
+}
+
+/* Media Query  */
+/* Breakpoints  */
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+  #app main{
+    padding: 80px 1.2rem;
+  }
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr) ) ;
+  }
+  .search_container {
+    margin-right: 1.5rem;
+  }
+ }
+
+ /* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+  header {
+    padding: .5rem 3rem;
+  }
+ }
+
+ /* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+  .search_container{
+    margin-right: 3rem;
+  }
+  header {
+    padding: .5rem 5.5rem;
+  }
+ }
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+  #app main{
+    padding: 80px 5.5rem;
+  }
+ }
